@@ -23,6 +23,7 @@
         android:id="@+id/play"
         android:layout_width="169dp"
         android:layout_height="77dp"
+        android:onClick="startButton"
         android:text="Play"
         android:textSize="28sp"
         app:backgroundTint="@android:color/holo_green_light"
