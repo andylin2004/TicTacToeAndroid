@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(mainActivity);
             }
         });
+        winner.setCancelable(false);
         AlertDialog alert = winner.create();
         alert.show();
     }
@@ -250,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(mainActivity);
                 }
             });
+            draw.setCancelable(false);
             AlertDialog alert = draw.create();
             alert.show();
         }

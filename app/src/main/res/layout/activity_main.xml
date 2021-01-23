@@ -37,7 +37,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
 
             <Button
                 android:id="@+id/r0c1"
@@ -45,7 +48,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
 
             <Button
                 android:id="@+id/r0c2"
@@ -53,7 +59,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
         </TableRow>
 
         <TableRow
@@ -67,7 +76,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
 
             <Button
                 android:id="@+id/r1c1"
@@ -75,7 +87,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
 
             <Button
                 android:id="@+id/r1c2"
@@ -83,7 +98,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
         </TableRow>
 
         <TableRow
@@ -97,7 +115,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
 
             <Button
                 android:id="@+id/r2c1"
@@ -105,7 +126,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
 
             <Button
                 android:id="@+id/r2c2"
@@ -113,7 +137,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove" />
+                android:background="?android:attr/selectableItemBackground"
+                android:onClick="makeMove"
+                android:textColor="@color/black"
+                android:textSize="50sp" />
         </TableRow>
 
     </TableLayout>
