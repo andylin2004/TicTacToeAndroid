@@ -1,10 +1,13 @@
 package com.example.tictactoe;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.w3c.dom.Text;
@@ -12,6 +15,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
     boolean player1Turn = true;
     String[][] board = new String[3][3];
+    int filled = 0;
     MainActivity view;
 
     Button r0c0, r0c1, r0c2, r1c0, r1c1, r1c2, r2c0, r2c1, r2c2;
@@ -32,12 +36,18 @@ public class MainActivity extends AppCompatActivity {
         r2c1 = (Button)findViewById(R.id.r2c1);
         r2c2 = (Button)findViewById(R.id.r2c2);
         turn = (TextView)findViewById(R.id.turn);
+
+        for (int i = 0; i<3; i++){
+            for (int v = 0; v<3; v++){
+                board[i][v] = "";
+            }
+        }
     }
 
     public void makeMove(View view){
         switch (view.getId()) {
             case R.id.r0c0:
-                if (board[0][0] == null) {
+                if (board[0][0] == "") {
                     if (player1Turn) {
                         board[0][0] = "X";
                     } else {
@@ -46,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
                     r0c0.setText(board[0][0]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(0, 0);
                 break;
             case R.id.r0c1:
-                if (board[0][1] == null) {
+                if (board[0][1] == "") {
                     if (player1Turn) {
                         board[0][1] = "X";
                     } else {
@@ -57,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
                     r0c1.setText(board[0][1]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(0, 1);
                 break;
             case R.id.r0c2:
-                if (board[0][2] == null) {
+                if (board[0][2] == "") {
                     if (player1Turn) {
                         board[0][2] = "X";
                     } else {
@@ -68,9 +80,10 @@ public class MainActivity extends AppCompatActivity {
                     r0c2.setText(board[0][2]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(0, 2);
                 break;
             case R.id.r1c0:
-                if (board[1][0] == null) {
+                if (board[1][0] == "") {
                     if (player1Turn) {
                         board[1][0] = "X";
                     } else {
@@ -79,9 +92,10 @@ public class MainActivity extends AppCompatActivity {
                     r1c0.setText(board[1][0]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(1, 0);
                 break;
             case R.id.r1c1:
-                if (board[1][1] == null) {
+                if (board[1][1] == "") {
                     if (player1Turn) {
                         board[1][1] = "X";
                     } else {
@@ -90,9 +104,10 @@ public class MainActivity extends AppCompatActivity {
                     r1c1.setText(board[1][1]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(1, 1);
                 break;
             case R.id.r1c2:
-                if (board[1][2] == null) {
+                if (board[1][2] == "") {
                     if (player1Turn) {
                         board[1][2] = "X";
                     } else {
@@ -101,9 +116,10 @@ public class MainActivity extends AppCompatActivity {
                     r1c2.setText(board[1][2]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(1, 2);
                 break;
             case R.id.r2c0:
-                if (board[2][0] == null) {
+                if (board[2][0] == "") {
                     if (player1Turn) {
                         board[2][0] = "X";
                     } else {
@@ -112,9 +128,10 @@ public class MainActivity extends AppCompatActivity {
                     r2c0.setText(board[2][0]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(2, 0);
                 break;
             case R.id.r2c1:
-                if (board[2][1] == null) {
+                if (board[2][1] == "") {
                     if (player1Turn) {
                         board[2][1] = "X";
                     } else {
@@ -123,9 +140,10 @@ public class MainActivity extends AppCompatActivity {
                     r2c1.setText(board[2][1]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(2, 1);
                 break;
             case R.id.r2c2:
-                if (board[2][2] == null) {
+                if (board[2][2] == "") {
                     if (player1Turn) {
                         board[2][2] = "X";
                     } else {
@@ -134,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     r2c2.setText(board[2][2]);
                     player1Turn = !player1Turn;
                 }
+                checkWinner(2, 2);
                 break;
         }
         if (player1Turn){
@@ -141,6 +160,94 @@ public class MainActivity extends AppCompatActivity {
         }else{
             turn.setText("Player 2's turn");
         }
+        filled++;
+        System.out.println(filled);
     }
 
+    public void checkWinner(int row, int col){
+        int count = 1;
+        //check the row
+        for (int i = 0; i<2; i++){
+            if (board[row][i].equals(board[row][i+1])) {
+                count++;
+            }
+        }
+        if (count == 3){
+            winnerAlert(row, col);
+        }else {
+            count = 1;
+            for (int i = 0; i < 2; i++) {
+                if (board[i][col].equals(board[i + 1][col])) {
+                    count++;
+                }
+            }
+            if (count == 3) {
+                winnerAlert(row, col);
+            }else if (col == 1 && row == 1){
+                if (diagonalDown() || diagonalUp()){
+                    winnerAlert(row, col);
+                }else{
+                    onNine();
+                }
+            }else if (col == row){
+                if (diagonalDown()){
+                    winnerAlert(row, col);
+                }else{
+                    onNine();
+                }
+            }else if (Math.max(row, col) - 2 == col){
+                if (diagonalUp()){
+                    winnerAlert(row, col);
+                }else{
+                    onNine();
+                }
+            }else{
+                onNine();
+            }
+        }
+    }
+
+    public boolean diagonalDown(){
+        return (board[0][0].equals(board[1][1]) && board[0][0].equals(board[2][2]));
+    }
+
+    public boolean diagonalUp(){
+        return (board[0][2].equals(board[1][1]) && board[0][2].equals(board[2][0]));
+    }
+
+    public void winnerAlert(int row, int col){
+        Intent mainActivity = new Intent(this, MainActivity.class);
+
+        AlertDialog.Builder winner = new AlertDialog.Builder(MainActivity.this);
+        if (board[row][col].equals("X")){
+            winner.setTitle("Player 1 won!");
+        }else{
+            winner.setTitle("Player 2 won!");
+        }
+        winner.setNegativeButton("Restart", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(mainActivity);
+            }
+        });
+        AlertDialog alert = winner.create();
+        alert.show();
+    }
+
+    public void onNine(){
+        if(filled == 9){
+            Intent mainActivity = new Intent(this, MainActivity.class);
+
+            AlertDialog.Builder draw = new AlertDialog.Builder(MainActivity.this);
+            draw.setTitle("It's a draw!");
+            draw.setNegativeButton("Restart", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    startActivity(mainActivity);
+                }
+            });
+            AlertDialog alert = draw.create();
+            alert.show();
+        }
+    }
 }

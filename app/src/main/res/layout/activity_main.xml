@@ -37,8 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
 
             <Button
                 android:id="@+id/r0c1"
@@ -46,8 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
 
             <Button
                 android:id="@+id/r0c2"
@@ -55,8 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
         </TableRow>
 
         <TableRow
@@ -70,8 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
 
             <Button
                 android:id="@+id/r1c1"
@@ -79,8 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
 
             <Button
                 android:id="@+id/r1c2"
@@ -88,8 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
         </TableRow>
 
         <TableRow
@@ -103,8 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
 
             <Button
                 android:id="@+id/r2c1"
@@ -112,8 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
 
             <Button
                 android:id="@+id/r2c2"
@@ -121,8 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:onClick="makeMove"
-                android:text="Button" />
+                android:onClick="makeMove" />
         </TableRow>
 
     </TableLayout>
