@@ -15,7 +15,7 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
     boolean player1Turn = true;
     String[][] board = new String[3][3];
-    int filled = 0;
+    int filled = 1;
     MainActivity view;
 
     Button r0c0, r0c1, r0c2, r1c0, r1c1, r1c2, r2c0, r2c1, r2c2;
@@ -175,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         if (count == 3){
             winnerAlert(row, col);
         }else {
+            System.out.println("a");
             count = 1;
             for (int i = 0; i < 2; i++) {
                 if (board[i][col].equals(board[i + 1][col])) {
@@ -185,18 +186,21 @@ public class MainActivity extends AppCompatActivity {
                 winnerAlert(row, col);
             }else if (col == 1 && row == 1){
                 if (diagonalDown() || diagonalUp()){
+                    System.out.println("b");
                     winnerAlert(row, col);
                 }else{
                     onNine();
                 }
             }else if (col == row){
                 if (diagonalDown()){
+                    System.out.println("c");
                     winnerAlert(row, col);
                 }else{
                     onNine();
                 }
             }else if (Math.max(row, col) - 2 == col){
                 if (diagonalUp()){
+                    System.out.println("d");
                     winnerAlert(row, col);
                 }else{
                     onNine();
